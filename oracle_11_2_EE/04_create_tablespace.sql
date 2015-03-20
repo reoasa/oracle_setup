@@ -1,0 +1,14 @@
+set echo on;
+spool 04_create_tablespace.log;
+
+CONNECT SYSTEM/MANAGER AS SYSDBA
+CREATE TABLESPACE USERS LOGGING
+ DATAFILE '/u02/oradata/o112ee/data/user_data/user01.dbf' SIZE 2048M REUSE AUTOEXTEND ON MAXSIZE UNLIMITED;
+
+CREATE TABLESPACE INDEXES LOGGING
+ DATAFILE '/u02/oradata/o112ee/data/user_data/index01.dbf' SIZE 256M REUSE AUTOEXTEND ON MAXSIZE UNLIMITED;
+
+disconnect;
+spool off;
+
+exit;
